@@ -119,6 +119,67 @@
     echo gettype($b);
 
     echo gettype($a);
+
+
+
+    $elem1 = 10;
+    
+    // Ссылка на переменную
+    $elem2 = & $elem1;
+
+    // Теперь $elem1 and $elem2 = 0
+    $elem2 = 0;
+
+    $elem3 = $arr[2];
+
+    echo "<p>elem1 = $elem1 a elem2 = $elem2 a elem3 = $elem3</p>";
+
+    // Символичекая ссылка тоесть ссылается на имя переменной если добавить еще один знак $
+    $sym_link = "elem1";
+
+    echo "<p> name of link to the element".$$sym_link."</p>";
+
+    // Константа указывающая на расположение данного файла
+    echo "<p> Where is located this file ".__FILE__."</p>";
+
+    
+    // Константа указывающая на строку в которой вызвана
+    echo "<p> Where interpretator now is (line in code)".__LINE__."</p>";
+    
+    // Константа указывающая на версию текущего интерпретатора
+    echo "<p>".PHP_VERSION."</p>";
+
+    // Константа указывающая на операционную систему 
+    echo "<p>".PHP_OS."</p>";
+
+    // Константа указывающая escape-последовательность (\n Linux  \r\n Windows)
+    echo "<p>".PHP_EOL."</p>";
+
+    // Опредиление новой константы
+    define("consta", "some constant value", false);
+
+    echo "<p>".consta."</p>";
+
+    // true Если константа существует
+    echo "<p>".defined("consta")."</p>";
+
+
+    $value = mt_rand(1, 10);
+
+    $name = "VALUE{$value}";
+
+    define($name, $value);
+
+    echo "<p> $name ".constant($name)."</p>";
+
+    // Отладочные функции
+    echo "<p>"; print_r($arr); echo "</p>";
+
+    echo "<p>"; var_dump($arr); echo "</p>";
+   
+    echo "<p>"; var_export($arr);  echo "</p>";
+    // echo "<p>""</p>";
+
      ?>
 </body>
 </html>
